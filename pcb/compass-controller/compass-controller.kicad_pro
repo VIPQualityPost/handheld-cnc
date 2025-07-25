@@ -355,6 +355,10 @@
       {
         "netclass": "MOTOR",
         "pattern": "V*"
+      },
+      {
+        "netclass": "GND",
+        "pattern": "Earth"
       }
     ]
   },

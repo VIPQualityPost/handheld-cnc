@@ -1,7 +1,6 @@
 #ifndef ENCODER_CALLBACKS_H
 #define ENCODER_CALLBACKS_H
 
-#include <EncoderButton.h>
 #include "../config.h"
 #include "../globals.h"
 #include "../actuation/motors.h"
@@ -9,6 +8,10 @@
 #include "../path/path-generators.h"
 #include "../io/logging.h"
 #include "../sensors/sensors.h"
+
+#ifdef TEENSY41
+#include <EncoderButton.h>
+#endif
 
 // Basic handlers
 void nullHandler(EncoderButton &eb);
