@@ -8,10 +8,23 @@ TMC2209Stepper driverR(&SERIAL_PORT, R_SENSE, DRIVER_ADDRESS_R);
 TMC2209Stepper driverL(&SERIAL_PORT, R_SENSE, DRIVER_ADDRESS_L);
 TMC2209Stepper driverZ(&SERIAL_PORT, R_SENSE, DRIVER_ADDRESS_Z);
 PMW3360 sensors[4];
+SdFat sd;
+
+#ifndef STM32G4xx
+
 EncoderButton encoder(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTT);
 Arduino_DataBus *bus = new Arduino_HWSPI(TFT_DC, TFT_CS, &SPI1);
+
+#else
+EncoderButton encoder(1600, ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTT);
+// Need to figure out how to instantiate tx-only bus
+// https://github.com/moononournation/Arduino_GFX/wiki/Data-Bus-Class#software-spi
+SPIClass SPI_2(TFT_MOSI, GFX_NOT_DEFINED, TFT_SCK);
+Arduino_DataBus *bus = new Arduino_HWSPI(TFT_DC, TFT_CS, &SPI_2);
+
+#endif
+
 Arduino_GFX *screen = new Arduino_GC9A01(bus, TFT_RST, 0, true);
-SdFat sd;
 
 // State variables
 State state = POWER_ON;

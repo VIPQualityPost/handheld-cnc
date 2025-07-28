@@ -9,8 +9,10 @@
 #include "../io/logging.h"
 #include "../sensors/sensors.h"
 
-#ifdef TEENSY41
+#ifndef STM32G4xx
 #include <EncoderButton.h>
+#else
+#include "STM32HWEncoder.h"
 #endif
 
 // Basic handlers

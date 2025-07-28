@@ -42,6 +42,7 @@ void setup() {
 	motorSetup(); 
 	driverSetup();
 	
+	#ifndef STM32G4xx
 	Serial.print("Initializing SD card...");
 	if (!sd.begin(SdioConfig(FIFO_SDIO))) {
 		Serial.println("Initialization failed!");
@@ -49,6 +50,10 @@ void setup() {
 	} else {
 		Serial.println("Initialization done.");
 	}
+	#else
+	//https://github.com/greiman/SdFat/issues/250
+	
+	#endif
 
 	drawCenteredText("Zero Machine XY", 2);
 	encoder.setClickHandler(onClickZeroMachineXY);

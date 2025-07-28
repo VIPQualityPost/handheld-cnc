@@ -7,9 +7,15 @@
 #include <PMW3360.h>
 #include <SdFat.h>
 #include <Arduino_GFX_Library.h>
-#include <EncoderButton.h>
+#include <elapsedMillis.h>
 #include "config.h"
 #include "types.h"
+
+#ifndef STM32G4xx
+#include <EncoderButton.h>
+#else
+#include "STM32HWEncoder.h"
+#endif
 
 // Global object declarations
 extern AccelStepper stepperR;

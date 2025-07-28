@@ -30,17 +30,31 @@
 #define TFT_RST     		25
 #define TFT_BL				24
 
+#ifdef STM32G4xx
+#define TFT_MOSI            PA6
+#define TFT_MISO            PA5
+#define TFT_SCK             PA3
+#endif
+
 // Driver settings
 #define DRIVER_ADDRESS_L	0b00
 #define DRIVER_ADDRESS_R  	0b01
 #define DRIVER_ADDRESS_Z	0b10
 #define R_SENSE            	0.11f
+#ifndef STM32G4xx
 #define SERIAL_PORT     	Serial4
+#else
+#define SERIAL_PORT         Serial
+#endif
 #define motorInterfaceType 	1
 
 // Constants
 // #define MAX_PATHS  			10
+#ifndef STM32G4xx
 #define MAX_POINTS 			8000
+#else 
+#define MAX_POINTS          1000
+#endif
 #define MAX_FILES			100
 #define GC9A01A_WEBWORK_GREEN 0x8FF1
 const float angleThreshold = PI/6;				// angle threshold for cuttable region (rads)
