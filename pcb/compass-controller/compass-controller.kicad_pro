@@ -332,10 +332,22 @@
       "/POWER SUPPLY/SW": [
         "PWR"
       ],
+      "/SW": [
+        "PWR"
+      ],
       "Net-(D303-A)": [
         "PWR"
       ],
+      "Net-(D303-K)": [
+        "PWR"
+      ],
+      "Net-(J14-Pad1)": [
+        "PWR"
+      ],
       "unconnected-(D303-K-Pad1)": [
+        "PWR"
+      ],
+      "unconnected-(R308-Pad1)": [
         "PWR"
       ]
     },
@@ -440,12 +452,30 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "LCSC ID",
+          "name": "LCSC ID",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -505,10 +535,6 @@
     [
       "2ddae7f5-19cd-4327-84c1-1b8dceb9d41b",
       "Z TMC2209"
-    ],
-    [
-      "21611e5b-da0e-454c-9754-e4ecac250504",
-      "POWER SUPPLY"
     ]
   ],
   "text_variables": {}
